@@ -12,4 +12,6 @@ this puppet module.
 
 
 
-> puppet module install rismoney-chocolatey
+```bash
+puppet module install rismoney-chocolatey
+```
