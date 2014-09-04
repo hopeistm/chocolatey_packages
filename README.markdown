@@ -2,13 +2,13 @@
 
 Puppet module to install chocolatey packages on Windows machines.
 
--Google Chrome
--Mozilla Firefox
--Adobe Flash Activex
--Adobe Flash Plugin
--Adobe Reader
--Java
--Itunes
+- Google Chrome
+- Mozilla Firefox
+- Adobe Flash Activex
+- Adobe Flash Plugin
+- Adobe Reader
+- Java
+- Itunes
 
 Other packages can be easily added as well.
 
