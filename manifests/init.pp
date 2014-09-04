@@ -1,3 +1,24 @@
+# == Class
+#
+# chocolatey_packages
+#
+# == Synopsis
+#
+# This class is used for managing chocolatey package installation for Windows machines across a domain with Puppet.
+#
+# == Author
+#
+# John McCarthy <midactsmystery@gmail.com>
+#
+# - http://www.midactstech.blogspot.com -
+# - https://www.github.com/Midacts -
+#
+# == Date
+#
+# 4th of September, 2014
+#
+# -- Version 1.0 --
+#
 class chocolatey_packages {
 
   $provider	= 'chocolatey'
