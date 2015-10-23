@@ -21,6 +21,12 @@
 #
 class chocolatey_packages {
 
+  if ($::operatingsystemmajrelease != '8')
+  {
+    err('This module works on Windows 8 only!')
+    fail('Unsupported OS')
+  }
+
   $provider	= 'chocolatey'
 
   # exec { "install-chocolatey":
@@ -34,10 +40,10 @@ class chocolatey_packages {
     # require	=> Exec['install-chocolatey'],
   }
 
-  file { 'C:\users\public\desktop\Google Chrome.lnk':
-    ensure	=> absent,
-    subscribe	=> Package['GoogleChrome'],
-  }
+  # file { 'C:\users\public\desktop\Google Chrome.lnk':
+  #   ensure	=> absent,
+  #   subscribe	=> Package['GoogleChrome'],
+  # }
 
   package { 'Firefox':
     ensure      => latest,
@@ -68,7 +74,7 @@ class chocolatey_packages {
     # require	=> Package['flashplayerplugin'],
   }
 
-  file { 'C:\users\public\desktop\Adobe Reader XI.lnk':
+  file { 'C:\users\public\desktop\Adobe Reader DC.lnk':
     ensure	=> absent,
     subscribe	=> Package['adobereader'],
   }
