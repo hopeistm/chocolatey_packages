@@ -48,7 +48,7 @@ class chocolatey_packages {
   package { 'Firefox':
     ensure      => latest,
     provider    => $provider,
-    require	=> File['C:\users\public\desktop\Google Chrome.lnk'],
+    # require	=> File['C:\users\public\desktop\Google Chrome.lnk'],
   }
 
   file { 'C:\users\public\desktop\Mozilla Firefox.lnk':
