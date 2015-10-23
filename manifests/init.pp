@@ -23,7 +23,7 @@ class chocolatey_packages {
 
   $provider	= 'chocolatey'
 
-  if ($::operatingsystemmajrelease = '8')
+  if ($::operatingsystemmajrelease == '8')
   {
     package { 'GoogleChrome':
       ensure      => latest,
