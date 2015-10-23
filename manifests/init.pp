@@ -21,7 +21,7 @@
 #
 class chocolatey_packages {
 
-  if ($::operatingsystemmajrelease != '7')
+  if ($::operatingsystemmajrelease != '8')
   {
     err('This module works on Windows 8 only!')
     fail('Unsupported OS')
