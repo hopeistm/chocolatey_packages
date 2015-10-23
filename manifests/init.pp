@@ -40,7 +40,7 @@ class chocolatey_packages {
       provider    => $provider,
     }
 
-    file { 'C:\users\public\desktop\Mozilla Firefox.lnk':
+    file { 'C:\Users\Public\Desktop\Mozilla Firefox.lnk':
       ensure	=> absent,
       subscribe	=> Package['Firefox'],
     }
