@@ -61,7 +61,7 @@ class chocolatey_packages {
       # require	=> Package['flashplayerplugin'],
     }
 
-    file { 'C:\users\public\desktop\Adobe Reader DC.lnk':
+    file { 'C:\users\public\desktop\Acrobat Reader DC.lnk':
       ensure	=> absent,
       subscribe	=> Package['adobereader'],
     }
