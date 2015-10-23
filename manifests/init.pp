@@ -25,61 +25,56 @@ class chocolatey_packages {
 
   if ($::operatingsystemmajrelease = '8')
   {
-      package { 'GoogleChrome':
-        ensure      => latest,
-        provider    => $provider,
-        # require	=> Exec['install-chocolatey'],
-      }
+    package { 'GoogleChrome':
+      ensure      => latest,
+      provider    => $provider,
+    }
 
-      # file { 'C:\users\public\desktop\Google Chrome.lnk':
-      #   ensure	=> absent,
-      #   subscribe	=> Package['GoogleChrome'],
-      # }
+    # file { 'C:\users\public\desktop\Google Chrome.lnk':
+    #   ensure	=> absent,
+    #   subscribe	=> Package['GoogleChrome'],
+    # }
 
-      package { 'Firefox':
-        ensure      => latest,
-        provider    => $provider,
-        # require	=> File['C:\users\public\desktop\Google Chrome.lnk'],
-      }
+    package { 'Firefox':
+      ensure      => latest,
+      provider    => $provider,
+    }
 
-      file { 'C:\users\public\desktop\Mozilla Firefox.lnk':
-        ensure	=> absent,
-        subscribe	=> Package['Firefox'],
-      }
+    file { 'C:\users\public\desktop\Mozilla Firefox.lnk':
+      ensure	=> absent,
+      subscribe	=> Package['Firefox'],
+    }
 
-      # package { 'flashplayeractivex':
-      #   ensure      => installed,
-      #   provider    => $provider,
-      #   require	=> File['C:\users\public\desktop\Mozilla Firefox.lnk'],
-      # }
+    # package { 'flashplayeractivex':
+    #   ensure      => installed,
+    #   provider    => $provider,
+    # }
 
-      # package { 'flashplayerplugin':
-      #   ensure      => latest,
-      #   provider    => $provider,
-      #   require	=> Package['flashplayeractivex'],
-      # }
+    # package { 'flashplayerplugin':
+    #   ensure      => latest,
+    #   provider    => $provider,
+    # }
 
-      package { 'adobereader':
-        ensure      => latest,
-        provider    => $provider,
-        # require	=> Package['flashplayerplugin'],
-      }
+    package { 'adobereader':
+      ensure      => latest,
+      provider    => $provider,
+      # require	=> Package['flashplayerplugin'],
+    }
 
-      file { 'C:\users\public\desktop\Adobe Reader DC.lnk':
-        ensure	=> absent,
-        subscribe	=> Package['adobereader'],
-      }
+    file { 'C:\users\public\desktop\Adobe Reader DC.lnk':
+      ensure	=> absent,
+      subscribe	=> Package['adobereader'],
+    }
 
-      # package { 'javaruntime':
-      #   ensure      => latest,
-      #   provider    => $provider,
-      #   require	=> File['C:\users\public\desktop\Adobe Reader XI.lnk'],
-      # }
+    # package { 'javaruntime':
+    #   ensure      => latest,
+    #   provider    => $provider,
+    # }
 
-      package { '7zip':
-        ensure      => latest,
-        provider    => $provider,
-      }
+    package { '7zip':
+      ensure      => latest,
+      provider    => $provider,
+    }
   }
 
 }
