@@ -23,15 +23,15 @@ class chocolatey_packages {
 
   $provider	= 'chocolatey'
 
-  exec { "install-chocolatey":
-    creates	=> 'C:\ProgramData\chocolatey',
-    command     => 'C:\windows\system32\cmd.exe /K @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(\'https://chocolatey.org/install.ps1\'))"',
-  }
+  # exec { "install-chocolatey":
+  #   creates	=> 'C:\ProgramData\chocolatey',
+  #   command     => 'C:\windows\system32\cmd.exe /K @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(\'https://chocolatey.org/install.ps1\'))"',
+  # }
 
   package { 'GoogleChrome':
-    ensure      => installed,
+    ensure      => latest,
     provider    => $provider,
-    require	=> Exec['install-chocolatey'],
+    # require	=> Exec['install-chocolatey'],
   }
 
   file { 'C:\users\public\desktop\Google Chrome.lnk':
@@ -40,7 +40,7 @@ class chocolatey_packages {
   }
 
   package { 'Firefox':
-    ensure      => installed,
+    ensure      => latest,
     provider    => $provider,
     require	=> File['C:\users\public\desktop\Google Chrome.lnk'],
   }
@@ -50,22 +50,22 @@ class chocolatey_packages {
     subscribe	=> Package['Firefox'],
   }
 
-  package { 'flashplayeractivex':
-    ensure      => installed,
-    provider    => $provider,
-    require	=> File['C:\users\public\desktop\Mozilla Firefox.lnk'],
-  }
+  # package { 'flashplayeractivex':
+  #   ensure      => installed,
+  #   provider    => $provider,
+  #   require	=> File['C:\users\public\desktop\Mozilla Firefox.lnk'],
+  # }
 
-  package { 'flashplayerplugin':
-    ensure      => installed,
-    provider    => $provider,
-    require	=> Package['flashplayeractivex'],
-  }
+  # package { 'flashplayerplugin':
+  #   ensure      => latest,
+  #   provider    => $provider,
+  #   require	=> Package['flashplayeractivex'],
+  # }
 
   package { 'adobereader':
-    ensure      => installed,
+    ensure      => latest,
     provider    => $provider,
-    require	=> Package['flashplayerplugin'],
+    # require	=> Package['flashplayerplugin'],
   }
 
   file { 'C:\users\public\desktop\Adobe Reader XI.lnk':
@@ -73,22 +73,22 @@ class chocolatey_packages {
     subscribe	=> Package['adobereader'],
   }
 
-  package { 'javaruntime':
-    ensure      => installed,
-    provider    => $provider,
-    require	=> File['C:\users\public\desktop\Adobe Reader XI.lnk'],
-  }
+  # package { 'javaruntime':
+  #   ensure      => latest,
+  #   provider    => $provider,
+  #   require	=> File['C:\users\public\desktop\Adobe Reader XI.lnk'],
+  # }
 
   package { '7zip':
-    ensure      => installed,
+    ensure      => latest,
     provider    => $provider,
-    require	=> Package['javaruntime'],
+    # require	=> Package['javaruntime'],
   }
 
-  package { 'iTunes':
-    ensure      => installed,
-    provider    => $provider,
-    require	=> Package['7zip'],
-  }
+  # package { 'iTunes':
+  #   ensure      => latest,
+  #   provider    => $provider,
+  #   require	=> Package['7zip'],
+  # }
 
 }
