@@ -77,12 +77,12 @@ class chocolatey_packages {
     }
   }
 
-else if ($::operatingsystemmajrelease == '7') {
+elsif ($::operatingsystemmajrelease == '7') {
     package { 'flashplayeractivex':
       ensure   => installed,
       provider => $provider,
     }
-    
+
     package { 'flashplayerplugin':
       ensure   => latest,
       provider => $provider,
