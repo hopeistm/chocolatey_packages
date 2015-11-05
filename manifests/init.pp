@@ -21,13 +21,13 @@
 #
 class chocolatey_packages {
 
-  $provider = 'chocolatey'
+  $provider	= 'chocolatey'
 
   if ($::operatingsystemmajrelease == '8')
   {
     package { 'GoogleChrome':
-      ensure   => latest,
-      provider => $provider,
+      ensure      => latest,
+      provider    => $provider,
     }
 
     # file { 'C:\users\public\desktop\Google Chrome.lnk':
@@ -36,13 +36,13 @@ class chocolatey_packages {
     # }
 
     package { 'Firefox':
-      ensure   => latest,
-      provider => $provider,
+      ensure      => latest,
+      provider    => $provider,
     }
 
     file { 'C:\Users\Public\Desktop\Mozilla Firefox.lnk':
-      ensure    => absent,
-      subscribe => Package['Firefox'],
+      ensure	=> absent,
+      subscribe	=> Package['Firefox'],
     }
 
     # package { 'flashplayeractivex':
@@ -56,14 +56,14 @@ class chocolatey_packages {
     # }
 
     package { 'adobereader':
-      ensure   => latest,
-      provider => $provider,
+      ensure      => latest,
+      provider    => $provider,
       # require	=> Package['flashplayerplugin'],
     }
 
     file { 'C:\users\public\desktop\Acrobat Reader DC.lnk':
-      ensure    => absent,
-      subscribe => Package['adobereader'],
+      ensure	=> absent,
+      subscribe	=> Package['adobereader'],
     }
 
     # package { 'javaruntime':
@@ -72,17 +72,9 @@ class chocolatey_packages {
     # }
 
     package { '7zip':
-      ensure   => latest,
-      provider => $provider,
+      ensure      => latest,
+      provider    => $provider,
     }
   }
-  package { 'flashplayeractivex':
-    ensure   => installed,
-    provider => $provider,
-  }
 
-  package { 'flashplayerplugin':
-    ensure   => latest,
-    provider => $provider,
-  }
 }
