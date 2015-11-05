@@ -50,10 +50,10 @@ class chocolatey_packages {
     #   provider    => $provider,
     # }
 
-    # package { 'flashplayerplugin':
-    #   ensure      => latest,
-    #   provider    => $provider,
-    # }
+    package { 'flashplayerplugin':
+      ensure   => latest,
+      provider => $provider,
+    }
 
     package { 'adobereader':
       ensure   => latest,
@@ -77,13 +77,16 @@ class chocolatey_packages {
     }
   }
 
-  package { 'flashplayeractivex':
-    ensure   => installed,
-    provider => $provider,
-  }
+else if ($::operatingsystemmajrelease == '7') {
+    package { 'flashplayeractivex':
+      ensure   => installed,
+      provider => $provider,
+    }
+    
+    package { 'flashplayerplugin':
+      ensure   => latest,
+      provider => $provider,
+    }
 
-  package { 'flashplayerplugin':
-    ensure   => latest,
-    provider => $provider,
   }
 }
