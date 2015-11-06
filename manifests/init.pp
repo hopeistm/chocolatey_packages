@@ -78,6 +78,27 @@ class chocolatey_packages {
   }
 
 elsif ($::operatingsystemmajrelease == '7') {
+  package { 'GoogleChrome':
+    ensure   => latest,
+    provider => $provider,
+  }
+
+  package { 'Firefox':
+    ensure   => latest,
+    provider => $provider,
+  }
+
+  package { 'adobereader':
+    ensure   => latest,
+    provider => $provider,
+    # require	=> Package['flashplayerplugin'],
+  }
+
+  file { 'C:\users\public\desktop\Acrobat Reader DC.lnk':
+    ensure    => absent,
+    subscribe => Package['adobereader'],
+  }
+
     package { 'flashplayeractivex':
       ensure   => installed,
       provider => $provider,
