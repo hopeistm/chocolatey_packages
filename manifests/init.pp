@@ -105,6 +105,11 @@ elsif ($::operatingsystemmajrelease == '7') {
       provider => $provider,
     }
 
+    package { 'javaruntime':
+      ensure   => latest,
+      provider => $provider,
+    }
+
   }
   elsif ($::operatingsystemmajrelease == '10') {
     package { 'GoogleChrome':
@@ -134,11 +139,6 @@ elsif ($::operatingsystemmajrelease == '7') {
     }
 
     package { 'flashplayerplugin':
-      ensure   => latest,
-      provider => $provider,
-    }
-
-    package { 'javaruntime':
       ensure   => latest,
       provider => $provider,
     }
