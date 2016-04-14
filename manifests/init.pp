@@ -4,7 +4,8 @@
 #
 # == Synopsis
 #
-# This class is used for managing chocolatey package installation for Windows machines across a domain with Puppet.
+# This class is used for managing chocolatey package installation for Windows
+# machines across a domain with Puppet.
 #
 # == Author
 #
@@ -65,11 +66,6 @@ class chocolatey_packages {
       ensure    => absent,
       subscribe => Package['adobereader'],
     }
-
-    # package { 'javaruntime':
-    #   ensure      => latest,
-    #   provider    => $provider,
-    # }
 
     package { '7zip':
       ensure   => latest,
@@ -132,15 +128,20 @@ elsif ($::operatingsystemmajrelease == '7') {
       subscribe => Package['adobereader'],
     }
 
-      package { 'flashplayeractivex':
-        ensure   => installed,
-        provider => $provider,
-      }
-
-      package { 'flashplayerplugin':
-        ensure   => latest,
-        provider => $provider,
-      }
-
+    package { 'flashplayeractivex':
+      ensure   => installed,
+      provider => $provider,
     }
+
+    package { 'flashplayerplugin':
+      ensure   => latest,
+      provider => $provider,
+    }
+
+    package { 'javaruntime':
+      ensure   => latest,
+      provider => $provider,
+    }
+
+  }
 }
